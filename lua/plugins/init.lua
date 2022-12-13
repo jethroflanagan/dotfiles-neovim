@@ -37,6 +37,7 @@ packer.startup(
     require "plugins.packer" (use)
     require "plugins.plenary" (use)
     require "plugins.impatient" (use)
+    require "plugins.devicons" (use)
     require "plugins.cmp" (use)
     require "plugins.autopairs" (use)
     require "plugins.indent_blankline" (use)

@@ -34,22 +34,22 @@ return function(use)
       vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-      vim.fn.sign_define("DiagnosticSignError",
-        { text = " ", texthl = "DiagnosticSignError" })
-      vim.fn.sign_define("DiagnosticSignWarn",
-        { text = " ", texthl = "DiagnosticSignWarn" })
-      vim.fn.sign_define("DiagnosticSignInfo",
-        { text = " ", texthl = "DiagnosticSignInfo" })
-      vim.fn.sign_define("DiagnosticSignHint",
-        { text = "", texthl = "DiagnosticSignHint" })
+      -- vim.fn.sign_define("DiagnosticSignError",
+      --   { text = " ", texthl = "DiagnosticSignError" })
+      -- vim.fn.sign_define("DiagnosticSignWarn",
+      --   { text = " ", texthl = "DiagnosticSignWarn" })
+      -- vim.fn.sign_define("DiagnosticSignInfo",
+      --   { text = " ", texthl = "DiagnosticSignInfo" })
+      -- vim.fn.sign_define("DiagnosticSignHint",
+      --   { text = "", texthl = "DiagnosticSignHint" })
       -- NOTE: this is changed from v1.x, which used the old style of highlight groups
       -- in the form "LspDiagnosticsSignWarning"
 
       require("neo-tree").setup({
-        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
-        enable_git_status = true,
-        enable_diagnostics = true,
+        enable_git_status = false,
+        enable_diagnostics = false,
         sort_case_insensitive = false, -- used when sorting files and directories in the tree
         sort_function = nil, -- use a custom function for sorting files and directories in the tree
         -- sort_function = function (a,b)
@@ -87,7 +87,7 @@ return function(use)
             highlight = "NeoTreeFileIcon"
           },
           modified = {
-            symbol = "[+]",
+            symbol = "*",
             highlight = "NeoTreeModified",
           },
           name = {
@@ -95,21 +95,22 @@ return function(use)
             use_git_status_colors = true,
             highlight = "NeoTreeFileName",
           },
-          git_status = {
-            symbols = {
-              -- Change type
-              added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted   = "✖", -- this can only be used in the git_status source
-              renamed   = "", -- this can only be used in the git_status source
-              -- Status type
-              untracked = "",
-              ignored   = "",
-              unstaged  = "",
-              staged    = "",
-              conflict  = "",
-            }
-          },
+          git_status = {},
+          -- git_status = {
+          --   symbols = {
+          --     -- Change type
+          --     added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+          --     modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+          --     deleted   = "✖", -- this can only be used in the git_status source
+          --     renamed   = "", -- this can only be used in the git_status source
+          --     -- Status type
+          --     untracked = "",
+          --     ignored   = "",
+          --     unstaged  = "",
+          --     staged    = "",
+          --     conflict  = "",
+          --   }
+          -- },
         },
         window = {
           position = "left",
@@ -119,10 +120,11 @@ return function(use)
             nowait = true,
           },
           mappings = {
-            ["<space>"] = {
-              "toggle_node",
-              nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-            },
+            ["space"] = false,
+            -- ["<space>"] = {
+            --   "toggle_node",
+            --   nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+            -- },
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
             ["<esc>"] = "revert_preview",
@@ -192,10 +194,10 @@ return function(use)
               --".null-ls_*",
             },
           },
-          follow_current_file = false, -- This will find and focus the file in the active buffer every
+          follow_current_file = true, -- This will find and focus the file in the active buffer every
           -- time the current file is changed while the tree is open.
           group_empty_dirs = false, -- when true, empty folders will be grouped together
-          hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+          hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
           -- in whatever position is specified in window.position
           -- "open_current",  -- netrw disabled, opening a directory opens within the
           -- window like netrw would, regardless of window.position
@@ -229,20 +231,20 @@ return function(use)
             }
           },
         },
-        git_status = {
-          window = {
-            position = "float",
-            mappings = {
-              ["A"]  = "git_add_all",
-              ["gu"] = "git_unstage_file",
-              ["ga"] = "git_add_file",
-              ["gr"] = "git_revert_file",
-              ["gc"] = "git_commit",
-              ["gp"] = "git_push",
-              ["gg"] = "git_commit_and_push",
-            }
-          }
-        }
+        -- git_status = {
+        --   window = {
+        --     position = "float",
+        --     mappings = {
+        --       ["A"]  = "git_add_all",
+        --       ["gu"] = "git_unstage_file",
+        --       ["ga"] = "git_add_file",
+        --       ["gr"] = "git_revert_file",
+        --       ["gc"] = "git_commit",
+        --       ["gp"] = "git_push",
+        --       ["gg"] = "git_commit_and_push",
+        --     }
+        --   }
+        -- }
       })
 
       -- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])

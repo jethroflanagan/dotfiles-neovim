@@ -15,10 +15,15 @@ end
 
 g.transparency = false
 g.theme_switcher_loaded = false
+g.highlighturl_enabled = true
+g.mapleader = " "
+-- g.icons_enabled = true
+-- g.autoformat_enabled = true
 
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
-
+opt.swapfile = false
+opt.undofile = true
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
@@ -69,8 +74,7 @@ opt.scrollopt = "ver,hor,jump"
 opt.wrap = false
 opt.tw = 0 -- no wrap
 opt.sidescroll = 8
-
-g.mapleader = " "
+opt.scrolloff = 8
 
 -- disable some builtin vim plugins
 local default_plugins = {

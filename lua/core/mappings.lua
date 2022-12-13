@@ -20,10 +20,10 @@ keymap("n", {
   ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
   -- switch between windows
-  ["<C-h>"] = { "<C-h>", "Window left" },
-  ["<C-l>"] = { "<C-l>", "Window right" },
-  ["<C-j>"] = { "<C-j>", "Window down" },
-  ["<C-k>"] = { "<C-k>", "Window up" },
+  ["<C-h>"] = { "<C-w>h", "Window left" },
+  ["<C-l>"] = { "<C-w>l", "Window right" },
+  ["<C-j>"] = { "<C-w>j", "Window down" },
+  ["<C-k>"] = { "<C-w>k", "Window up" },
 
   -- save
   ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
