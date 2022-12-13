@@ -1,0 +1,5 @@
+require "plugins.mappings.comment"
+require "plugins.mappings.colorscheme"
+require "plugins.mappings.neo-tree"
+require "plugins.mappings.telescope"
+require "plugins.mappings.which-key"
