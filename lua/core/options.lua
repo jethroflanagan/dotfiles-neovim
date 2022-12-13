@@ -18,7 +18,7 @@ g.theme_switcher_loaded = false
 g.highlighturl_enabled = true
 g.mapleader = " "
 -- g.icons_enabled = true
--- g.autoformat_enabled = true
+g.autoformat_enabled = true
 
 opt.laststatus = 3 -- global statusline
 opt.showmode = false

@@ -177,7 +177,10 @@ return function(use)
             hide_gitignored = true,
             hide_hidden = true, -- only works on Windows for hidden files/directories
             hide_by_name = {
-              --"node_modules"
+              ".DS_Store",
+              "thumbs.db",
+              "node_modules",
+              ".git",
             },
             hide_by_pattern = { -- uses glob style patterns
               --"*.meta",
@@ -225,7 +228,9 @@ return function(use)
           show_unloaded = true,
           window = {
             mappings = {
-              ["bd"] = "buffer_delete",
+              ["d"] = "buffer_delete",
+              ["S"] = "open_split",
+              ["s"] = "open_vsplit",
               ["<bs>"] = "navigate_up",
               ["."] = "set_root",
             }

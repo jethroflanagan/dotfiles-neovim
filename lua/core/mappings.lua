@@ -17,8 +17,11 @@ keymap("i", {
 })
 
 keymap("n", {
+  ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
   ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
+  ["<S-h>"] = { ":bprev", "Previous buffer" },
+  ["<S-l>"] = { ":bnext", "Next buffer" },
   -- switch between windows
   ["<C-h>"] = { "<C-w>h", "Window left" },
   ["<C-l>"] = { "<C-w>l", "Window right" },
@@ -31,15 +34,6 @@ keymap("n", {
 
   -- Copy all
   ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
-
-
-  ["<leader>tt"] = {
-    function()
-      -- require("base46").toggle_theme()
-    end,
-    "toggle theme",
-  },
-
   -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
   -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
   -- empty mode is same as using <cmd> :map
@@ -50,10 +44,10 @@ keymap("n", {
   ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
   -- new buffer
-  ["<leader>fn"] = { "<cmd> enew <CR>", "new buffer" },
+  ["<leader>fn"] = { "<cmd> enew <CR>", "New buffer" },
 })
 
-keymap("t", { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } })
+keymap("t", { ["<C-x>"] = { termcodes "<C-\\><C-N>", "Escape terminal mode" } })
 
 keymap("v", {
   ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },

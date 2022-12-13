@@ -7,11 +7,12 @@ return function(use)
 
   local options = {
     signs = {
-      add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-      change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-      delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-      topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-      changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+      add = { text = "▎" },
+      change = { text = "▎" },
+      delete = { text = "▎" },
+      topdelete = { text = "契" },
+      changedelete = { text = "▎" },
+      untracked = { text = "▎" },
     },
     on_attach = function(bufnr)
       -- utils.load_mappings("gitsigns", { buffer = bufnr })
