@@ -1,7 +1,6 @@
 return function(use)
   use {
     "hrsh7th/nvim-cmp",
-    after = "nvim-web-devicons",
     config = function()
       local present, cmp = pcall(require, "cmp")
 

@@ -1,6 +1,8 @@
 local keymap = require "core.keymap"
 
 keymap("n", {
-  ["<leader>P"] = { name = "Packer"},
-  ["<leader>Ps"] = { ":PackerSync<CR>", "Packer sync" },
+  ["<leader>p"] = { name = "Packer" },
+  ["<leader>ps"] = { ":PackerSync<CR>", "Packer sync" },
+  ["<leader>pS"] = { ":PackerStatus<CR>", "Packer status" },
+  ["<leader>pc"] = { ":PackerClean<CR>", "Packer clean" },
 })

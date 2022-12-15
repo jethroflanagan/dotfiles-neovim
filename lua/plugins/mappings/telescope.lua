@@ -8,14 +8,18 @@ keymap("n", {
   ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
   ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
   ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help for Telescope" },
-
-  -- git
-  -- ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-  -- ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
-
-  -- -- pick a hidden term
-  -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
-
-  -- theme switcher
-  -- ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
 })
+
+-- keymap("i", {
+--   ["<ESC>"] = { "<CMD>luado require('telescope.actions').close<CR>", "Close Telescope" },
+--
+--   -- git
+--   -- ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+--   -- ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
+--
+--   -- -- pick a hidden term
+--   -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
+--
+--   -- theme switcher
+--   -- ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+-- })

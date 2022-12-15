@@ -76,6 +76,7 @@ opt.tw = 0 -- no wrap
 opt.sidescroll = 8
 opt.scrolloff = 8
 
+vim.cmd("colorscheme nightfox")
 -- disable some builtin vim plugins
 local default_plugins = {
   "2html_plugin",

@@ -20,8 +20,8 @@ keymap("n", {
   ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
   ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
-  ["<S-h>"] = { ":bprev", "Previous buffer" },
-  ["<S-l>"] = { ":bnext", "Next buffer" },
+  ["<S-h>"] = { ":bprev<CR>", "Previous buffer" },
+  ["<S-l>"] = { ":bnext<CR>", "Next buffer" },
   -- switch between windows
   ["<C-h>"] = { "<C-w>h", "Window left" },
   ["<C-l>"] = { "<C-w>l", "Window right" },

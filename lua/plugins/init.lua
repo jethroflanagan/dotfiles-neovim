@@ -41,16 +41,20 @@ packer.startup(
     require "plugins.alpha" (use)
     require "plugins.autopairs" (use)
     require "plugins.cmp" (use)
-    require "plugins.cmp-nvim-buffer" (use)
+    -- require "plugins.cmp-buffer" (use)
     require "plugins.cmp-nvim-lsp" (use)
-    require "plugins.cmp-nvim-lua" (use)
-    require "plugins.cmp-nvim-path" (use)
+    -- require "plugins.cmp-nvim-lua" (use)
+    -- require "plugins.cmp-path" (use)
     require "plugins.comment" (use)
+    require "plugins.dressing" (use)
     require "plugins.indent_blankline" (use)
+    -- require "plugins.lsp-zero" (use)
     require "plugins.mason" (use)
+    require "plugins.mason-lspconfig" (use)
     require "plugins.mini" (use)
     require "plugins.neo-tree" (use)
     require "plugins.neoscroll" (use)
+    require "plugins.session-manager" (use)
     require "plugins.nvim-lspconfig" (use) -- TODO: problem
     require "plugins.telescope" (use)
     require "plugins.treesitter" (use)
@@ -61,7 +65,6 @@ packer.startup(
     require "plugins.themes.nightfox" (use)
     require "plugins.themes.tokyonight" (use)
 
-    vim.cmd("colorscheme tokyonight")
     -- use {
     --   "",
     --   after = "which-key",
@@ -74,6 +77,9 @@ packer.startup(
   end
 )
 
+
 if packer_bootstrap then
   require('packer').sync()
 end
+
+      -- require("lspconfig").sumneko_lua.setup {}

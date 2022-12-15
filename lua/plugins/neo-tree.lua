@@ -181,6 +181,7 @@ return function(use)
               "thumbs.db",
               "node_modules",
               ".git",
+              "packer_compiled.lua"
             },
             hide_by_pattern = { -- uses glob style patterns
               --"*.meta",
