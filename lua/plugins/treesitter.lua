@@ -2,9 +2,6 @@ return function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     module = "nvim-treesitter",
-    setup = function()
-      require("core.lazy_load").on_file_open "nvim-treesitter"
-    end,
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
     run = ":TSUpdate",
     config = function()
@@ -24,6 +21,7 @@ return function(use)
           "typescript",
           "ruby",
         },
+        auto_install = true,
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,

@@ -4,6 +4,8 @@ local function termcodes(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+keymap("", { ["<Space>"] = { "<Nop>" } })
+
 keymap("i", {
   -- go to  beginning and end
   -- ["<C-b>"] = { "<ESC>^i", "beginning of line" },
@@ -17,11 +19,19 @@ keymap("i", {
   ["<C-k>"] = { "<Up>", "Move up" },
 })
 
-keymap("n", {
-  ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
-  ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
-  ["<leader>c"] = { ":bdelete<cr>", "Close buffer" },
+keymap("n", {
+  ['<leader>R'] = { ':so ~/.config/nvim/init.lua<cr>', "Reload config" },
+  ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
+  ["<ESC>"] = {
+    function()
+      -- require("notify").dismiss()
+      vim.cmd.nohlsearch() -- clear highlights
+      vim.cmd.echo() -- clear short message
+    end,
+    "No highlight"
+  },
+  -- ["<Space>"] = { "<NOP>" },
   ["<S-h>"] = { ":bprev<CR>", "Previous buffer" },
   ["<S-l>"] = { ":bnext<CR>", "Next buffer" },
   -- switch between windows

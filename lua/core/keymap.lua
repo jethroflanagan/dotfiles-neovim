@@ -7,8 +7,9 @@ return function(mode, keys, options)
     mode = mode,
     silent = true, -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
-    -- nowait = false, -- use `nowait` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
   }, options or {})
 
   whichkey.register(keys, opts)
+  -- vim.api.nvim_set_keymap(mode, keys, '', opts)
 end

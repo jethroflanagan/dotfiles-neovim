@@ -12,4 +12,6 @@ vim.env.PATH = vim.env.PATH .. (is_windows and ";" or ":") .. vim.fn.stdpath "da
 --     vim.opt_local.buflisted = false
 --   end,
 -- })
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+
+-- Format on save
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

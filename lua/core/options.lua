@@ -45,15 +45,17 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append "at"
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
-opt.timeoutlen = 400
-opt.undofile = true
+-- opt.undofile = true
 
+-- search
+opt.hlsearch = false
+opt.incsearch = true
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
 
@@ -75,7 +77,7 @@ opt.wrap = false
 opt.tw = 0 -- no wrap
 opt.sidescroll = 8
 opt.scrolloff = 8
-
+opt.lazyredraw = true
 vim.cmd("colorscheme nightfox")
 -- disable some builtin vim plugins
 local default_plugins = {

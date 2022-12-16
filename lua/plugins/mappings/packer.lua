@@ -4,5 +4,5 @@ keymap("n", {
   ["<leader>p"] = { name = "Packer" },
   ["<leader>ps"] = { ":PackerSync<CR>", "Packer sync" },
   ["<leader>pS"] = { ":PackerStatus<CR>", "Packer status" },
-  ["<leader>pc"] = { ":PackerClean<CR>", "Packer clean" },
+  ["<leader>pc"] = { ":PackerCompile<CR>", "Packer compile" },
 })

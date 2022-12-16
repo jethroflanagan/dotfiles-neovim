@@ -1,3 +1,4 @@
+require "plugins.mappings.bufdelete"
 require "plugins.mappings.comment"
 require "plugins.mappings.colorscheme"
 require "plugins.mappings.lsp-config"
