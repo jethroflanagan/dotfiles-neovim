@@ -9,6 +9,7 @@ keymap("i", {
   -- ["<C-b>"] = { "<ESC>^i", "beginning of line" },
   -- ["<C-e>"] = { "<End>", "end of line" },
 
+  ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
   -- navigate within insert mode
   ["<C-h>"] = { "<Left>", "Move left" },
   ["<C-l>"] = { "<Right>", "Move right" },
@@ -20,6 +21,7 @@ keymap("n", {
   ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
   ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
+  ["<leader>c"] = { ":bdelete<cr>", "Close buffer" },
   ["<S-h>"] = { ":bprev<CR>", "Previous buffer" },
   ["<S-l>"] = { ":bnext<CR>", "Next buffer" },
   -- switch between windows

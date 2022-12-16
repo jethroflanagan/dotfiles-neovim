@@ -9,6 +9,7 @@ return function(use)
       "MasonUninstallAll",
       "MasonLog"
     },
+    opt = false,
     config = function()
       local present, mason = pcall(require, "mason")
 
@@ -55,7 +56,7 @@ return function(use)
         -- Limit for the maximum amount of packages to be installed at the same time. Once this limit is reached, any further
         -- packages that are requested to be installed will be put in a queue.
         max_concurrent_installers = 4,
-
+        ensure_installed = { "sumneko_lua" },
         -- github = {
         --   -- The template URL to use when downloading assets from GitHub.
         --   -- The placeholders are the following (in order):

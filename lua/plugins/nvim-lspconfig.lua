@@ -1,8 +1,8 @@
 return function(use)
   use {
     "neovim/nvim-lspconfig",
-    after = { "mason-lspconfig.nvim"},
-    requires = {"cmp-nvim-lsp"},
+    after = { "mason-lspconfig.nvim", "cmp-nvim-lsp"},
+    -- requires = {"cmp-nvim-lsp"},
     setup = function()
       require("core.lazy_load").on_file_open "nvim-lspconfig"
     end,

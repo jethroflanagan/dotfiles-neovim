@@ -1,5 +1,6 @@
 require "plugins.mappings.comment"
 require "plugins.mappings.colorscheme"
+require "plugins.mappings.lsp-config"
 require "plugins.mappings.neo-tree"
 require "plugins.mappings.packer"
 require "plugins.mappings.telescope"
