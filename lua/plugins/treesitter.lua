@@ -19,12 +19,12 @@ return function(use)
           "html",
           "javascript",
           "typescript",
-          "ruby",
+          -- "ruby",
         },
         auto_install = true,
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = true,
         },
         context_commentstring = {
           enable = true,

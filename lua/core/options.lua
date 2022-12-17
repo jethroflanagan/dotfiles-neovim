@@ -20,10 +20,11 @@ g.mapleader = " "
 -- g.icons_enabled = true
 g.autoformat_enabled = true
 
-opt.laststatus = 3 -- global statusline
-opt.showmode = false
+-- opt.laststatus = 3 -- global statusline
+-- opt.showmode = false
 opt.swapfile = false
 opt.undofile = true
+-- opt.undodir = os.geteng("HOME") .. "/.undodir"
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
@@ -45,7 +46,7 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "at"
+-- opt.shortmess:append "at"
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
@@ -57,16 +58,16 @@ opt.termguicolors = true
 opt.hlsearch = false
 opt.incsearch = true
 -- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
+opt.updatetime = 50
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 
-opt.cmdheight = 0
+-- opt.cmdheight = 2
 opt.relativenumber = true
 opt.timeoutlen = 300
-opt.completeopt = { "menuone", "noselect" }
+-- opt.completeopt = { "menuone", "noselect" }
 opt.expandtab = true -- Enable the use of space in tab
 opt.preserveindent = true -- Preserve indent structure as much as possible
 -- opt.cmp_enabled = true -- enable completion at start
@@ -74,52 +75,51 @@ opt.preserveindent = true -- Preserve indent structure as much as possible
 -- opt.diagnostics_enabled = true -- enable diagnostics at start
 opt.scrollopt = "ver,hor,jump"
 opt.wrap = false
-opt.tw = 0 -- no wrap
+-- opt.tw = 0 -- no wrap
 opt.sidescroll = 8
 opt.scrolloff = 8
-opt.lazyredraw = true
 vim.cmd("colorscheme nightfox")
 -- disable some builtin vim plugins
-local default_plugins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
-}
+-- local default_plugins = {
+--   "2html_plugin",
+--   "getscript",
+--   "getscriptPlugin",
+--   "gzip",
+--   "logipat",
+--   "netrw",
+--   "netrwPlugin",
+--   "netrwSettings",
+--   "netrwFileHandlers",
+--   "matchit",
+--   "tar",
+--   "tarPlugin",
+--   "rrhelper",
+--   "spellfile_plugin",
+--   "vimball",
+--   "vimballPlugin",
+--   "zip",
+--   "zipPlugin",
+--   "tutor",
+--   "rplugin",
+--   "syntax",
+--   "synmenu",
+--   "optwin",
+--   "compiler",
+--   "bugreport",
+--   "ftplugin",
+-- }
 
-for _, plugin in pairs(default_plugins) do
-  g["loaded_" .. plugin] = 1
-end
+-- for _, plugin in pairs(default_plugins) do
+--   g["loaded_" .. plugin] = 1
+-- end
 
-local default_providers = {
-  "node",
-  "perl",
-  "python3",
-  "ruby",
-}
+-- local default_providers = {
+--   "node",
+--   "perl",
+--   "python3",
+--   "ruby",
+-- }
 
-for _, provider in ipairs(default_providers) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
-end
+-- for _, provider in ipairs(default_providers) do
+--   vim.g["loaded_" .. provider .. "_provider"] = 0
+-- end

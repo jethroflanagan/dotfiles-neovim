@@ -19,7 +19,7 @@ local packer = require "packer"
 packer.init({
   auto_clean = true,
   compile_on_sync = true,
-  git = { clone_timeout = 6000 },
+  git = { clone_timeout = 10000 },
   display = {
     working_sym = "ﲊ",
     error_sym = "✗ ",
@@ -45,20 +45,25 @@ packer.startup(
     require "plugins.comment" (use)
     require "plugins.dressing" (use)
     require "plugins.feline" (use)
-    -- require "plugins.indent_blankline" (use)
+    require "plugins.gitsigns" (use)
+    require "plugins.indent_blankline" (use)
     -- require "plugins.nvim-reload" (use)
+    require "plugins.lsp-format" (use)
     require "plugins.lsp-zero" (use)
     require "plugins.mini" (use)
+    require "plugins.noice" (use)
     require "plugins.neo-tree" (use)
-    require "plugins.neoscroll" (use)
+    require "plugins.projections" (use)
+    -- require "plugins.neoscroll" (use)
     require "plugins.scrollbar" (use)
-    require "plugins.session-manager" (use)
+    -- require "plugins.session-manager" (use)
     require "plugins.telescope" (use)
     require "plugins.treesitter" (use)
     require "plugins.vim-cursorline" (use)
     require "plugins.vim-visual-multi" (use)
     require "plugins.which-key" (use)
-    
+    require "plugins.yanky" (use)
+
     -- themes
     require "plugins.themes.nightfox" (use)
     require "plugins.themes.tokyonight" (use)

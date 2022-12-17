@@ -4,6 +4,14 @@ local function termcodes(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("n", "<C-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>")
+vim.keymap.set("n", "<C-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>")
+vim.keymap.set("n", "<A-l>", "20zl")
+vim.keymap.set("n", "<A-h>", "20zh")
+
+
 keymap("", { ["<Space>"] = { "<Nop>" } })
 
 keymap("i", {
@@ -35,25 +43,33 @@ keymap("n", {
   ["<S-h>"] = { ":bprev<CR>", "Previous buffer" },
   ["<S-l>"] = { ":bnext<CR>", "Next buffer" },
   -- switch between windows
-  ["<C-h>"] = { "<C-w>h", "Window left" },
-  ["<C-l>"] = { "<C-w>l", "Window right" },
-  ["<C-j>"] = { "<C-w>j", "Window down" },
-  ["<C-k>"] = { "<C-w>k", "Window up" },
+  ["<C-left>"] = { "<C-w>h", "Window left" },
+  ["<C-right>"] = { "<C-w>l", "Window right" },
+  ["<C-down>"] = { "<C-w>j", "Window down" },
+  ["<C-up>"] = { "<C-w>k", "Window up" },
+
+  -- ["<C-u>"] = { "<C-u>zz", "Scroll, recenter" },
+  -- ["<C-d>"] = { "<C-d>zz", "Scroll, recenter" },
+  -- -- scroll
+  -- ["<A-k>"] = { "20zl" },
+  -- ["<A-j>"] = { "20zh" },
 
   -- save
   ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
   ["<leader>s"] = { "<cmd> w <CR>", "Save file" },
-
+  -- move
+  ["<C-j>"] = { "<S-v>:m '>+1<CR>gv=gv<Esc>" },
+  ["<C-k>"] = { "<S-v>:m '<-2<CR>gv=gv<Esc>" },
   -- Copy all
-  ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
+  ["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
   -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
   -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
   -- empty mode is same as using <cmd> :map
   -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
-  ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
-  ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
-  ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
-  ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+  -- ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+  -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+  -- ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+  -- ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
   -- new buffer
   ["<leader>fn"] = { "<cmd> enew <CR>", "New buffer" },
@@ -64,12 +80,16 @@ keymap("t", { ["<C-x>"] = { termcodes "<C-\\><C-N>", "Escape terminal mode" } })
 keymap("v", {
   ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
   ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+  -- ["<C-j>"] = { ":m '>+1<CR>gv=gv" },
+  -- ["<C-k>"] = { ":m '<-2<CR>gv=gv" },
+  ["y"] = { "<Plug>(YankyYank)" },
 })
 
 keymap("x", {
-  ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
-  ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+  -- ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+  -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
   -- Don't copy the replaced text after pasting in visual mode
   -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
   ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', opts = { silent = true } },
+  ["y"] = { "<Plug>(YankyYank)" },
 })
