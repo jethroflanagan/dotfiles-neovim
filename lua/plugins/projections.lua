@@ -2,6 +2,7 @@ return function(use)
   use({
     'gnikdroy/projections.nvim',
     after = { "telescope.nvim" },
+    opt = false,
     config = function()
       require("projections").setup({
         workspaces = { -- Default workspaces to search for
@@ -16,6 +17,7 @@ return function(use)
         -- sessions_directory = "path/to/dir",        -- Directory where sessions are stored
       })
       require('telescope').load_extension('projections')
+
       local Session = require("projections.session")
       vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
         callback = function() Session.store(vim.loop.cwd()) end,
@@ -28,6 +30,11 @@ return function(use)
           if vim.fn.argc() == 0 then switcher.switch(vim.loop.cwd()) end
         end,
       })
+      local Workspace = require("projections.workspace")
+      -- Add workspace command
+      vim.api.nvim_create_user_command("AddWorkspace", function()
+        Workspace.add(vim.loop.cwd())
+      end, {})
     end
   })
 end

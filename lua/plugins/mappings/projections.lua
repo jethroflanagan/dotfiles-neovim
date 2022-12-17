@@ -1,5 +1,6 @@
 local keymap = require "core.keymap"
 
 keymap("n", {
-  ["<leader>P"] = { ":Telescope projects<CR>", "Projects" },
+  ["<leader>Pf"] = { function() vim.cmd("Telescope projections") end, "Projects" },
+  ["<leader>Pa"] = { ":AddWorkspace<CR>", "Add workspace" },
 })

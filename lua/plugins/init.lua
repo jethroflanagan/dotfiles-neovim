@@ -42,6 +42,7 @@ packer.startup(
     require "plugins.autopairs" (use)
     require "plugins.bufdelete" (use)
     -- require "plugins.codewindow" (use)
+    require "plugins.cinnamon" (use)
     require "plugins.comment" (use)
     require "plugins.dressing" (use)
     require "plugins.feline" (use)

@@ -5,8 +5,8 @@ return function(use)
   if present then
     -- TODO:
     devicons.setup({
-color_icons=true,
-default=true,
+      color_icons = true,
+      default = true,
     })
   end
 end
