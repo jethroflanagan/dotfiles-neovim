@@ -43,7 +43,7 @@ opt.mouse = "a"
 -- Numbers
 opt.number = true
 opt.numberwidth = 2
-opt.ruler = false
+opt.ruler = true
 
 -- disable nvim intro
 -- opt.shortmess:append "at"

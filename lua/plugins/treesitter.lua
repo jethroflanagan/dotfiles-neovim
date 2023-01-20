@@ -15,6 +15,7 @@ return function(use)
         ensure_installed = {
           "lua",
           "vim",
+          "help",
           "css",
           "html",
           "javascript",
