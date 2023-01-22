@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 return {
   "declancm/cinnamon.nvim",
   config = function()

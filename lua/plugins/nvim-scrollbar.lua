@@ -4,7 +4,6 @@ return {
     local colors = require("tokyonight.colors").setup()
 
     require("scrollbar").setup({
-      throttle_ms = 1000,
       handle = {
         color = colors.purple,
       },
@@ -15,6 +14,22 @@ return {
         Info = { color = colors.info },
         Hint = { color = colors.hint },
         Misc = { color = colors.purple },
+        Cursor = {
+          text = " ",
+        },
+      },
+      autocmd = {
+        render = {
+          "BufWinEnter",
+          "CursorMoved",
+          "CmdwinLeave",
+          "TabEnter",
+          "TermEnter",
+          "WinEnter",
+          "TextChanged",
+          "VimResized",
+          "WinScrolled",
+        },
       },
     })
   end,
