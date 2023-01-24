@@ -6,7 +6,7 @@ return {
       tokyonight.setup({ style = "moon" })
       tokyonight.load()
     end,
-    lazy = true,
+    lazy = false,
   },
 
   {
@@ -14,7 +14,7 @@ return {
     config = function()
       vim.cmd("colorscheme horizon")
     end,
-    lazy = false,
+    lazy = true,
   },
 
   {
