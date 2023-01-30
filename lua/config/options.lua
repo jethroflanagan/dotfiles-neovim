@@ -3,4 +3,4 @@
 -- Add any additional options here
 local opt = vim.opt
 opt.guifont = "FiraCode Nerd Font:h14"
--- opt.sessionoptions:append("localoptions") -- Needed?
+opt.sessionoptions:append("localoptions") -- Needed?
