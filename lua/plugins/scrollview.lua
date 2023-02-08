@@ -5,8 +5,8 @@ return {
       excluded_filetypes = {},
       current_only = true,
       winblend = 75,
-      base = "buffer",
-      column = 80,
+      base = "right",
+      column = 2,
     })
   end,
 }
