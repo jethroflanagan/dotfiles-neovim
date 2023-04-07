@@ -22,7 +22,7 @@ return {
     { "<leader>sC", "<cmd>Telescope commands<cr>",                      desc = "Commands" },
     { "<leader>sd", "<cmd>Telescope diagnostics<cr>",                   desc = "Diagnostics" },
     -- { "<leader>sg",      Util.telescope("live_grep"),                              desc = "Grep (root dir)" },
-    -- { "<leader>sG",      Util.telescope("live_grep", { cwd = false }),             desc = "Grep (cwd)" },
+    -- { "<leader>sG",      Util.telesqcope("live_grep", { cwd = false }),             desc = "Grep (cwd)" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>",                     desc = "Help Pages" },
     { "<leader>sH", "<cmd>Telescope highlights<cr>",                    desc = "Search Highlight Groups" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>",                       desc = "Key Maps" },
@@ -102,9 +102,9 @@ return {
           end,
         },
         n = {
-          ["q"] = function(...)
-            return require("telescope.actions").close(...)
-          end,
+          -- ["q"] = function(...)
+          --   return require("telescope.actions").close(...)
+          -- end,
         },
       },
     },
