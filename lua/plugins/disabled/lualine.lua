@@ -1,3 +1,4 @@
+if true then return end
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -31,9 +32,14 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { "filetype", icon_only = true, separator = "",                                               padding = {
-            left = 1, right = 0 } },
-          { "filename", path = 1,         symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          {
+            "filetype",
+            icon_only = true,
+            separator = "",
+            padding = {
+              left = 1, right = 0 }
+          },
+          { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
           -- stylua: ignore
           {
             function() return require("nvim-navic").get_location() end,
