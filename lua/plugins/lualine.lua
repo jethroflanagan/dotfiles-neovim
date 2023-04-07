@@ -1,9 +1,8 @@
-if true then return end
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function()
-    local icons = require("lazyvim.config").icons
+    local icons = require("config.icons")
 
     local function fg(name)
       return function()

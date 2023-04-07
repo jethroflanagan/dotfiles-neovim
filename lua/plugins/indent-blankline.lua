@@ -1,4 +1,3 @@
-if true then return end
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "BufNewFile" },
