@@ -4,9 +4,9 @@ return {
     require("scrollview").setup({
       excluded_filetypes = {},
       current_only = true,
-      winblend = 75,
+      winblend = 15,
       base = "right",
-      column = 2,
+      column = 1,
     })
   end,
 }

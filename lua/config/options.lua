@@ -2,5 +2,5 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 local opt = vim.opt
-opt.guifont = "FiraCode Nerd Font:h14"
+opt.guifont = "FiraCode Nerd Font:h15"
 opt.sessionoptions:append("localoptions") -- Needed?
