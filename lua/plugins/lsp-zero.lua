@@ -31,12 +31,14 @@ return {
     vim.diagnostic.config({
       virtual_text = false,
     })
+
+    local icons = require('config.icons').diagnostics
+
     lsp.set_sign_icons({
-      error = "",
-      warn = "",
-      hint = "",
-      info = "",
-      other = "﫠"
+      error = icons.Error,
+      warn = icons.Warn,
+      hint = icons.Hint,
+      info = icons.Info,
       -- error = '✘',
       -- warn = '▲',
       -- hint = '⚑',
