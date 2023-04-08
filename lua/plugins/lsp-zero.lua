@@ -44,6 +44,27 @@ return {
       -- hint = '⚑',
       -- info = '»'
     })
+
+    -- lsp.set_server_config({
+    --   capabilities = {
+    --     textDocument = {
+    --       foldingRange = {
+    --         dynamicRegistration = false,
+    --         lineFoldingOnly = true
+    --       }
+    --     }
+    --   }
+    -- })
+
     lsp.setup()
+
+    local cmp = require('cmp')
+    local cmp_action = require('lsp-zero').cmp_action()
+
+    cmp.setup({
+      mapping = {
+        ['<C-Space>'] = cmp.mapping.complete(),
+      }
+    })
   end,
 }
