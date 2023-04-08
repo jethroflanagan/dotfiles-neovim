@@ -5,7 +5,7 @@ return {
       -- highlight for Window separator
       highlight = {
         bg = "#16161E",
-        fg = "#1F3442",
+        fg = "#8AA9F9",
       },
       -- timer refresh rate
       interval = 30,

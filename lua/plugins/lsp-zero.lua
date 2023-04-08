@@ -1,32 +1,30 @@
 return {
-  "VonHeikemen/lsp-zero.nvim",
-  branch = "v1.x",
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
   dependencies = {
     -- LSP Support
-    { "neovim/nvim-lspconfig" }, -- Required
-    { "williamboman/mason.nvim" }, -- Optional
-    { "williamboman/mason-lspconfig.nvim" }, -- Optional
+    { 'neovim/nvim-lspconfig' }, -- Required
+    {
+                                 -- Optional
+      'williamboman/mason.nvim',
+      build = function()
+        pcall(vim.cmd, 'MasonUpdate')
+      end,
+    },
+    { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
     -- Autocompletion
-    { "hrsh7th/nvim-cmp" }, -- Required
-    { "hrsh7th/cmp-nvim-lsp" }, -- Required
-    { "hrsh7th/cmp-buffer" }, -- Optional
-    { "hrsh7th/cmp-path" }, -- Optional
-    { "saadparwaiz1/cmp_luasnip" }, -- Optional
-    { "hrsh7th/cmp-nvim-lua" }, -- Optional
-
-    -- Snippets
-    { "L3MON4D3/LuaSnip" }, -- Required
-    { "rafamadriz/friendly-snippets" }, -- Optional
+    { 'hrsh7th/nvim-cmp' },     -- Required
+    { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+    { 'L3MON4D3/LuaSnip' },     -- Required
   },
   config = function()
-    -- Learn the keybindings, see :help lsp-zero-keybindings
-    -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-    local lsp = require("lsp-zero")
-    lsp.preset("recommended")
+    local lsp = require('lsp-zero').preset({})
 
-    -- (Optional) Configure lua language server for neovim
-    lsp.nvim_workspace()
+    lsp.on_attach(function(client, bufnr)
+      lsp.default_keymaps({ buffer = bufnr })
+      lsp.buffer_autoformat()
+    end)
 
     lsp.setup()
   end,

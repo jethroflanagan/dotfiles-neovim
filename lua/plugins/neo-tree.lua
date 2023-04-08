@@ -14,9 +14,9 @@ return {
     end
   end,
   keys = {
-    { '<leader>e', "<cmd>Neotree toggle reveal<cr>",       { desc = "Neotree toggle" } },
-    { '<leader>E', "<cmd>Neotree reveal<cr>",              { desc = "Neotree focus" } },
-    { '<leader>B', "<cmd>Neotree buffer reveal right<cr>", { desc = "Neotree buffer reveal" } },
+    { '<leader>e', "<cmd>Neotree toggle reveal<cr>",      desc = "Neotree toggle" },
+    { '<leader>E', "<cmd>Neotree reveal<cr>",             desc = "Neotree focus" },
+    { '<leader>B', "<cmd>Neotree buffers show right<cr>", desc = "Neotree buffer reveal" },
   },
   config = function()
     require("neo-tree").setup({
