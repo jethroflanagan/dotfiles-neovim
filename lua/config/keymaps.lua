@@ -40,6 +40,7 @@ map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- end
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>C", "<cmd>bd<cr>", { desc = "Delete buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -92,13 +93,10 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 -- stylua: ignore start
 
 -- toggle options
--- map("n", "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+map("n", "<leader>uf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
 -- map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
--- map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
--- map("n", "<leader>ul", function()
---   Util.toggle("relativenumber", true)
---   Util.toggle("number")
--- end, { desc = "Toggle Line Numbers" })
+map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle word wrap" })
+map("n", "<leader>ul", "<cmd>set relativenumber!<cr>" { desc = "Toggle relative line numbers" })
 -- map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 -- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 -- map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
