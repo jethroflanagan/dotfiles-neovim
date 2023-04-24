@@ -96,7 +96,7 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 map("n", "<leader>uf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
 -- map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle word wrap" })
-map("n", "<leader>ul", "<cmd>set relativenumber!<cr>" { desc = "Toggle relative line numbers" })
+map("n", "<leader>ul", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line numbers" })
 -- map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 -- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 -- map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
