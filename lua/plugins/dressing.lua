@@ -13,4 +13,13 @@ return {
       return vim.ui.input(...)
     end
   end,
+  config = function()
+    require('dressing').setup({
+      input = {
+        -- When true, <Esc> will close the modal
+        insert_only = false,
+        start_in_insert = false,
+      }
+    })
+  end
 }
