@@ -3,6 +3,7 @@ return {
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
+    'JoosepAlviste/nvim-ts-context-commentstring',
     -- "nvim-treesitter/nvim-treesitter-textobjects",
   },
   -- keys = {

@@ -55,6 +55,7 @@ map(
 )
 
 map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
+map({ "n", "x", "v", "i" }, "<C-z>", "<nop>", { desc = "Prevent suspend" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -93,7 +94,7 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 -- stylua: ignore start
 
 -- toggle options
-map("n", "<leader>uf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
+map("n", "<leader>cf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
 -- map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle word wrap" })
 map("n", "<leader>ul", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line numbers" })
