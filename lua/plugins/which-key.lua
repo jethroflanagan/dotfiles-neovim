@@ -15,7 +15,7 @@ return {
       ["["] = { name = "+prev" },
       ["<leader><tab>"] = { name = "+tabs" },
       ["<leader>b"] = { name = "+buffer" },
-      ["<leader>c"] = { name = "+code" },
+      ["<leader>l"] = { name = "+lsp" },
       ["<leader>f"] = { name = "+file" },
       ["<leader>S"] = { name = "+session" },
       ["<leader>s"] = { name = "+search" },

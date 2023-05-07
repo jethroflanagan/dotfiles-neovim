@@ -40,7 +40,6 @@ map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- end
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>C", "<cmd>bd<cr>", { desc = "Delete buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -94,7 +93,12 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 -- stylua: ignore start
 
 -- toggle options
-map("n", "<leader>cf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
+map("n", "<leader>lf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
+
+map("n", "<leader>lo", function()
+  vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
+end, { desc = "Organize imports" })
+
 -- map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle word wrap" })
 map("n", "<leader>ul", "<cmd>set relativenumber!<cr>", { desc = "Toggle relative line numbers" })

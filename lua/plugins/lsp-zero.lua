@@ -3,6 +3,8 @@ return {
   branch = 'v2.x',
   dependencies = {
     -- LSP Support
+
+    { 'jose-elias-alvarez/null-ls.nvim' },
     { 'neovim/nvim-lspconfig' }, -- Required
     {
       -- Optional
@@ -12,11 +14,12 @@ return {
       end,
     },
     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
+    { 'jay-babu/mason-null-ls.nvim' },
     -- Autocompletion
     { 'hrsh7th/nvim-cmp' },     -- Required
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
     { 'L3MON4D3/LuaSnip' },     -- Required
+    -- formatting
     { 'MunifTanjim/prettier.nvim' },
   },
   config = function()
@@ -70,8 +73,31 @@ return {
     -- for _, server_name in ipairs(get_servers()) do
     --   require('lspconfig')[server_name].setup({})
     -- end
+    lsp.format_on_save({
+      format_opts = {
+        timeout_ms = 10000,
+      },
+      servers = {
+        ['null-ls'] = { 'javascript', 'typescript', 'scss', 'css', 'lua' },
+      }
+    })
 
     lsp.setup()
+
+    local null_ls = require('null-ls')
+
+    null_ls.setup({
+      sources = {
+        --- Replace these with the tools you have installed
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettier,
+      }
+    })
+
+    require('mason-null-ls').setup({
+      ensure_installed = nil,
+      automatic_installation = true,
+    })
 
     local cmp = require('cmp')
     cmp.setup({
