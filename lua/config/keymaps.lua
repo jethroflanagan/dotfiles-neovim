@@ -93,7 +93,7 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 -- stylua: ignore start
 
 -- toggle options
-map("n", "<leader>lf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
+-- map("n", "<leader>lf", function() require("lazyvim.plugins.lsp.format").toggle() end, { desc = "Toggle format on Save" })
 
 map("n", "<leader>lo", function()
   vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })

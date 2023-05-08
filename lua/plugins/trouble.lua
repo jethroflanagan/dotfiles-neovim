@@ -2,7 +2,11 @@ return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
   config = function()
-    require("trouble").setup {}
+    require("trouble").setup {
+      auto_open = true,
+      auto_close = true,
+      auto_preview = true,
+    }
   end,
   keys = {
     { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)" },

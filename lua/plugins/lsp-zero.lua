@@ -20,7 +20,6 @@ return {
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
     { 'L3MON4D3/LuaSnip' },     -- Required
     -- formatting
-    { 'MunifTanjim/prettier.nvim' },
   },
   config = function()
     local lsp = require('lsp-zero').preset({
@@ -35,7 +34,10 @@ return {
 
     lsp.on_attach(function(client, bufnr)
       lsp.default_keymaps({ buffer = bufnr })
-      lsp.buffer_autoformat()
+
+      if client.name == 'cssls' then return end
+
+      lsp.buffer_autoformat({})
     end)
 
     vim.diagnostic.config({
@@ -73,43 +75,67 @@ return {
     -- for _, server_name in ipairs(get_servers()) do
     --   require('lspconfig')[server_name].setup({})
     -- end
-    lsp.format_on_save({
-      format_opts = {
-        timeout_ms = 10000,
-      },
-      servers = {
-        ['null-ls'] = { 'javascript', 'typescript', 'scss', 'css', 'lua' },
-      }
-    })
+    -- lsp.format_on_save({
+    --   format_opts = {
+    --     timeout_ms = 10000,
+    --   },
+    --   servers = {
+    --     ['tsserver'] = { 'lua', 'typescript', 'javascript' },
+    --     ['prettierd'] = { 'scss', 'css' },
+    --     ['css_ls'] = { 'scss', 'css' },
+    --   }
+    -- })
+
+    -- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
     lsp.setup()
 
     local null_ls = require('null-ls')
 
-    null_ls.setup({
-      sources = {
-        --- Replace these with the tools you have installed
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-      }
-    })
+    -- null_ls.setup({
+    --   on_attach = function(client, bufnr)
+    --     print("client", client.id)
+    --   end,
+    --   sources = {
+    --     --- Replace these with the tools you have installed
+    --     -- null_ls.builtins.formatting.stylua,
+    --     -- null_ls.builtins.formatting.eslint_d,
+    --     -- null_ls.builtins.formatting.prettierd,
+    --   }
+    -- })
 
-    require('mason-null-ls').setup({
-      ensure_installed = nil,
-      automatic_installation = true,
-    })
-
+    -- null_ls.register({
+    --   name = "styles",
+    --   filetypes = { "css", "scss" },
+    --   sources = { null_ls.builtins.formatting.prettierd, }
+    -- })
+    --
+    -- require('mason-null-ls').setup({
+    --   ensure_installed = nil,
+    --   automatic_installation = true,
+    -- })
+    --
     local cmp = require('cmp')
-    cmp.setup({
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      }
-    })
+
 
     local cmp_action = require('lsp-zero').cmp_action()
 
     cmp.setup({
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      sources = {
+        {
+          name = 'spell',
+          option = {
+            keep_all_entries = false,
+            enable_in_context = function()
+              return true
+            end,
+          },
+        },
+      },
       mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
