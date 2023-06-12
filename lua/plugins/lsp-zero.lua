@@ -24,7 +24,7 @@ return {
   config = function()
     local lsp = require('lsp-zero').preset({
       configure_diagnostics = false,
-      set_format = true,
+      -- set_format = true,
       manage_nvim_cmp = {
         set_sources = 'recommended'
       }
@@ -35,7 +35,7 @@ return {
     lsp.on_attach(function(client, bufnr)
       lsp.default_keymaps({ buffer = bufnr })
 
-      if client.name == 'cssls' then return end
+      if client.name == 'cssls' or client.name == 'lemminx' then return end
 
       lsp.buffer_autoformat({})
     end)
@@ -75,28 +75,28 @@ return {
     -- for _, server_name in ipairs(get_servers()) do
     --   require('lspconfig')[server_name].setup({})
     -- end
-    -- lsp.format_on_save({
-    --   format_opts = {
-    --     timeout_ms = 10000,
-    --   },
-    --   servers = {
-    --     ['tsserver'] = { 'lua', 'typescript', 'javascript' },
-    --     ['prettierd'] = { 'scss', 'css' },
-    --     ['css_ls'] = { 'scss', 'css' },
-    --   }
-    -- })
+    lsp.format_on_save({
+      format_opts = {
+        timeout_ms = 10000,
+      },
+      servers = {
+        ['tsserver'] = { 'lua', 'typescript', 'javascript' },
+      }
+    })
 
     -- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
     lsp.setup()
 
-    local null_ls = require('null-ls')
-
+    -- local null_ls = require('null-ls')
+    --
     -- null_ls.setup({
     --   on_attach = function(client, bufnr)
     --     print("client", client.id)
     --   end,
     --   sources = {
+    --     null_ls.builtins.diagnostics.cspell,
+    --     null_ls.builtins.code_actions.cspell,
     --     --- Replace these with the tools you have installed
     --     -- null_ls.builtins.formatting.stylua,
     --     -- null_ls.builtins.formatting.eslint_d,
@@ -126,6 +126,7 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       sources = {
+        { name = 'nvim_lsp' },
         {
           name = 'spell',
           option = {
@@ -142,5 +143,9 @@ return {
         ['<TAB>'] = cmp.mapping.confirm({ select = true }),
       }
     })
+
+    local map = require 'config.utils'.map
+    map('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = "Code action" })
+    -- map('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<cr>', { desc = "Go to implementation" })
   end,
 }

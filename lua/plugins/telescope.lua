@@ -168,6 +168,12 @@ return {
           ["<C-b>"] = function(...)
             return require("telescope.actions").preview_scrolling_up(...)
           end,
+          ["<C-k>"] = function()
+            require("telescope-live-grep-args.actions").quote_prompt()
+          end,
+          ["<C-i>"] = function()
+            require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " })
+          end,
         },
         n = {
           -- ["q"] = function(...)

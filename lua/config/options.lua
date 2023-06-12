@@ -38,7 +38,7 @@ opt.signcolumn = "yes"     -- Always show the signcolumn, otherwise it would shi
 opt.smartcase = true       -- Don't ignore case with capitals
 opt.smartindent = true     -- Insert indents automatically
 opt.spell = true
-opt.spelllang = { "en" }
+opt.spelllang = "en_us"
 opt.splitbelow = true    -- Put new windows below current
 opt.splitright = true    -- Put new windows right of current
 opt.tabstop = 2          -- Number of spaces tabs count for
@@ -56,6 +56,7 @@ opt.foldcolumn = '0'
 opt.foldenable = true
 opt.foldlevelstart = 99
 opt.foldlevel = 99
+-- opt.guicursor = { 'a:ver25 ' }
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

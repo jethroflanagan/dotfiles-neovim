@@ -130,6 +130,9 @@ end
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
 map("n", "<leader>wh", "<C-W>s", { desc = "Split window horizontal" })
 map("n", "<leader>wv", "<C-W>v", { desc = "Split window vertical" })
+
+map("n", "<Enter>", "o<Esc>", { desc = "Empty line below" })
+map("n", "<S-Enter>", "O<Esc>", { desc = "Empty line above" })
 -- map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
 -- map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
